@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    
+   
+</head>
+<body>
+    <h1>Job Portal [Admin]</h1>
+<table>
+
+<td>
+    <h2>Register Employer</h2>
+    <form id="registerForm" method="POST" action="index.php" onsubmit="return validateForm('registerForm')">
+        <input type="text" name="employer_name" placeholder="Employer Name" required><br>
+        <input type="text" name="company_name" placeholder="Company Name" required><br>
+        <input type="text" name="contact_no" placeholder="Contact Number" required><br>
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit" name="register">Register</button>
+    </form>
+</td>
+<br>
+<td>
+    <h2>Update Employer</h2>
+    <form id="updateForm" method="POST" action="index.php" onsubmit="return validateForm('updateForm')">
+        <input type="number" name="id" placeholder="Employer ID" required><br>
+        <input type="text" name="employer_name" placeholder="Employer Name" required><br>
+        <input type="text" name="company_name" placeholder="Company Name" required><br>
+        <input type="text" name="contact_no" placeholder="Contact Number" required><br>
+        <button type="submit" name="update">Update</button>
+    </form>
+</td>
+<td>
+    <h2>Delete Employer</h2>
+    <form id="deleteForm" method="POST" action="index.php">
+        <input type="number" name="id" placeholder="Employer ID" required><br>
+        <button type="submit" name="delete">Delete</button>
+    </form>
+</td>
+    <h2>Search Employer</h2>
+    <input type="text" id="searchBox" placeholder="Search by name or company">
+    <div id="searchResults"></div>
+</table>
+<script>
+      // validation 
+      function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll("input[required]");
+
+            for (const input of inputs) {
+                if (input.value.trim() === "") {
+                    alert(`${input.placeholder || input.name} cannot be empty!`);
+                    input.focus();
+                    return false;
+                }
+            }
+
+            return true; 
+        }
+</script>
+   
+    
+</body>
+</html>
